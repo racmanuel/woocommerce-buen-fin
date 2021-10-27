@@ -34,11 +34,7 @@ add_action('wp_enqueue_scripts', 'msi_buen_fin_scripts');
  */
 function msi_buen_fin_show_msi()
 {
-    //Set the Global Post
-    global $post;
-
-    //Create a new WC_Product Object
-    $product = new WC_Product($post->ID);
+    $product = wc_get_product(get_the_ID());
 
     //Get the Price
     $original_price = $product->get_price();
